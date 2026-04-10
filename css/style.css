@@ -1,0 +1,161 @@
+/* ===== CONFIGURACIÓN DEL BODY ===== */
+body {
+  margin: 0; /* elimina el margen blanco del navegador */
+  position: relative; /* necesario para usar ::before y ::after */
+}
+
+/* ===== FONDO DESENFOCADO ===== */
+body::before {
+  content: "";
+  position: fixed; /* se queda fijo al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* imagen de fondo */
+  background: url("../Img/cerebrobg.png") no-repeat center/cover;
+
+  filter: blur(8px); /* efecto desenfoque */
+
+  z-index: -1; /* queda detrás del contenido */
+}
+
+/* ===== CAPA OSCURA ENCIMA DEL FONDO ===== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0; /* ocupa toda la pantalla */
+  background: rgba(0,0,0,0.4); /* oscurece el fondo */
+  z-index: -1;
+}
+
+/* ===== RESET GENERAL ===== */
+* {
+  margin: 0; /* elimina márgenes por defecto */
+  padding: 0; /* elimina espacios internos */
+  box-sizing: border-box; /* controla tamaños correctamente */
+  font-family: "Montserrat", sans-serif; /* fuente general */
+}
+
+/* ===== LINKS ===== */
+a {
+  text-decoration: none; /* quita subrayado */
+  color: white; /* color base */
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+  width: 90%; /* ancho adaptable */
+  max-width: 1200px; /* límite máximo */
+  margin: 0 auto; /* centra el contenido */
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: #0a0044; /* fondo oscuro */
+  padding: 20px 0; /* espacio vertical */
+}
+
+/* ===== NAVBAR ===== */
+.nav {
+  display: flex; /* activa flexbox */
+  justify-content: space-between; /* separa logo y links */
+  align-items: center; /* centra verticalmente */
+}
+
+/* LOGO */
+.logo {
+  font-weight: bold;
+  font-size: 22px;
+  color: #00c6ff;
+}
+
+/* LINKS DEL MENÚ */
+.nav-link {
+  display: flex;
+  gap: 25px; /* espacio entre links */
+}
+
+.nav-link a {
+  font-weight: 500;
+  transition: 0.3s; /* animación suave */
+}
+
+.nav-link a:hover {
+  color: #4fd1ff; /* efecto hover */
+}
+
+/* ===== HERO (PORTADA) ===== */
+.hero {
+  position: relative;
+  height: 90vh; /* ocupa casi toda la pantalla */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* imagen de fondo */
+  background: url('../img/hero.jpg') center/cover no-repeat;
+}
+
+/* ===== OVERLAY (CAPA OSCURA) ===== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 0, 50, 0.75); /* oscurece el hero */
+}
+
+/* ===== CONTENIDO DEL HERO ===== */
+.hero-cont {
+  position: relative;
+  z-index: 2; /* queda encima del overlay */
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== TEXTO ===== */
+.hero-text {
+  max-width: 800px;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  color: white;
+}
+
+.hero-text span {
+  color: #4fd1ff; /* color destacado */
+}
+
+.hero-text p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+}
+
+/* ===== BOTÓN ===== */
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
+}
+
+/* EFECTO HOVER */
+.btn-primary:hover {
+  transform: scale(1.05); /* agranda un poco */
+  box-shadow: 0 0 30px rgba(0, 198, 255, 0.9);
+}

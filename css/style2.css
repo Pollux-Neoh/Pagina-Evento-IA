@@ -1,0 +1,234 @@
+/* ===== RESET GENERAL ===== */
+* {   /* aplica a todos los elementos */
+  margin: 0; /* elimina márgenes por defecto */
+  padding: 0; /* elimina espacios internos */
+  box-sizing: border-box; /* controla tamaños correctamente */
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif; /* fuente general */
+  background: #0f052e; /* color base */
+  color: #ffffff; /* color de texto */
+  margin: 0;  /* elimina borde blanco */
+  position: relative; /* necesario para usar ::before */
+}
+
+/* ===== FONDO DESENFOCADO ===== */
+body::before {
+  content: "";
+  position: fixed; /* fijo al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/cerebrobg.png") no-repeat center/cover; /* imagen */
+  filter: blur(8px); /* desenfoque */
+  z-index: -2; /* capa más al fondo */
+}
+
+/* CAPA OSCURA ENCIMA */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* oscurece */
+  z-index: -1;
+}
+
+/* ===== SCROLL SUAVE ===== */
+html {
+  scroll-behavior: smooth;  /* animación al hacer scroll */
+}
+
+/* ===== LOGO ===== */
+.logo {
+  color: #00cfff;
+  font-weight: bold;
+  text-decoration: none; /* quita subrayado */
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  color: #ffffff; /* efecto hover */
+}
+
+/* ===== NAVBAR ===== */
+.nav {
+  display: flex;
+  justify-content: space-between; /* separa elementos */
+  padding: 20px 40px;
+  background: #0a0225;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #00cfff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 60vh; /* altura de pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(15, 5, 46, 0.7); /* fondo semi-transparente */
+  backdrop-filter: blur(7px); /* efecto glass (desenfoque) */
+}
+
+/* CONTENIDO HERO */
+.hero-text {
+  max-width: 700px;
+}
+
+/* TÍTULO */
+.hero-text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+
+  /* efecto degradado en texto */
+  background: linear-gradient(90deg, #ffffff, #00cfff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TEXTO */
+.hero-text p {
+  color: #cbd5ff;
+  margin-bottom: 30px;
+}
+
+/* ===== BOTÓN ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: 600;
+
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 198, 255, 0.35);
+}
+
+/* HOVER */
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05); /* efecto levantar */
+  box-shadow: 0 12px 30px rgba(0, 198, 255, 0.6);
+}
+
+/* CLICK */
+.btn-primary:active {
+  transform: scale(0.98); /* efecto presionado */
+}
+
+/* ===== SECCIONES ===== */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* ===== BENEFICIOS ===== */
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* permite bajar en pantallas pequeñas */
+}
+
+.card {
+  background: #1a0d4d;
+  padding: 25px;
+  border-radius: 15px;
+  width: 220px;
+
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* EFECTO TARJETA */
+.card:hover {
+  transform: translateY(-8px);
+  background: #2a1170;
+}
+
+/* ===== AGENDA ===== */
+.agenda {
+  background: #f4f4f4;
+  color: #111;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* CONTENEDOR AGENDA */
+.agenda-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ITEM AGENDA */
+.agenda-item {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* hora | texto */
+  align-items: center;
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+/* HORA */
+.agenda-item span {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 15px;
+}
+
+/* DESCRIPCIÓN */
+.agenda-item p {
+  text-align: left;
+  color: #555;
+}
+
+/* ===== REGISTRO ===== */
+.registro {
+  background: linear-gradient(90deg, #0d0333, #00cfff);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* ===== FORMULARIO ===== */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin: auto;
+  gap: 12px;
+}
+
+.formulario input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* BOTÓN DEL FORM */
+.formulario button {
+  margin-top: 10px;
+}
