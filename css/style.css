@@ -14,7 +14,7 @@ body::before {
   height: 100%;
 
   /* imagen de fondo */
-  background: url("../Img/cerebrobg.png") no-repeat center/cover;
+  background: url("../img/cerebrobg.png") no-repeat center/cover;
 
   filter: blur(8px); /* efecto desenfoque */
 
